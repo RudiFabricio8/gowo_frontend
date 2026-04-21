@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-2xl);
+  text-align: center;
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 400px;
+}
