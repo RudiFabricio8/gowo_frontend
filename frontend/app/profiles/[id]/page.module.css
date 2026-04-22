@@ -166,6 +166,103 @@
   border-radius: var(--radius-md);
 }
 
+.contactSuccess {
+  font-size: var(--font-size-sm);
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  text-align: center;
+}
+
+.contactErrorMsg {
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  text-align: center;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.githubLink {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-primary);
+  margin-left: var(--spacing-sm);
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.githubLink:hover {
+  opacity: 1;
+}
+
+.reposGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.repoCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.repoCard:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateY(-2px);
+}
+
+.repoName {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-primary);
+}
+
+.repoDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repoMeta {
+  display: flex;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-top: auto;
+}
+
+.repoLang {
+  background-color: var(--color-accent-primary);
+  color: white;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: var(--font-weight-medium);
+}
+
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
