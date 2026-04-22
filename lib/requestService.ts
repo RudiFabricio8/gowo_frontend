@@ -1,42 +1,34 @@
 import { httpClient } from './http';
 
-interface Request {
+export interface ContactRequest { // cache buster
   id: string;
   empresaId: string;
   profileId: string;
   estado: 'pendiente' | 'aceptada' | 'rechazada';
   descripcion: string;
   createdAt: string;
-  updatedAt: string;
-}
-
-interface CreateRequestData {
-  profile_id: string;
-  descripcion: string;
+  profile?: { nombre: string; rating: string };
+  empresa?: { email: string };
 }
 
 export const requestService = {
-  async createRequest(data: CreateRequestData): Promise<{ request: Request }> {
-    return httpClient<{ request: Request }>('/requests', {
+  async createRequest(profileId: string, descripcion: string): Promise<{ request: ContactRequest }> {
+    return httpClient<{ request: ContactRequest }>('/requests', {
       method: 'POST',
-      body: data,
+      body: { profileId, descripcion },
       requireAuth: true,
     });
   },
 
-  async getMyRequests(): Promise<{ requests: Request[] }> {
-    return httpClient<{ requests: Request[] }>('/requests', {
-      requireAuth: true,
-    });
+  async getMyRequests(): Promise<{ requests: ContactRequest[] }> {
+    return httpClient<{ requests: ContactRequest[] }>('/requests', { requireAuth: true });
   },
 
-  async updateRequestStatus(id: string, estado: 'aceptada' | 'rechazada'): Promise<{ request: Request }> {
-    return httpClient<{ request: Request }>(`/requests/${id}`, {
+  async updateStatus(id: string, estado: 'aceptada' | 'rechazada'): Promise<{ request: ContactRequest }> {
+    return httpClient<{ request: ContactRequest }>(`/requests/${id}`, {
       method: 'PATCH',
       body: { estado },
       requireAuth: true,
     });
   },
 };
-
-export type { Request, CreateRequestData };
