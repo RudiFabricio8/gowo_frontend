@@ -25,7 +25,7 @@ export const requestService = {
   },
 
   async getMyRequests(): Promise<{ requests: Request[] }> {
-    return httpClient<{ requests: Request[] }>('/requests/me', {
+    return httpClient<{ requests: Request[] }>('/requests', {
       requireAuth: true,
     });
   },

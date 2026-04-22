@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api/v1';
+const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api/v1';
+const API_BASE_URL = baseURL.endsWith('/api/v1') ? baseURL : baseURL.replace(/\/$/, '') + '/api/v1';
 
 interface HttpOptions {
   method?: string;
